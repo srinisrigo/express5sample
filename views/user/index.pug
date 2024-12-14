@@ -1,0 +1,27 @@
+extends ../layout
+
+block breadcrumb
+  // begin::Row
+  .row
+    .col-sm-12
+      ol.breadcrumb.float-sm-end
+        li.breadcrumb-item
+          a(href='#') Users
+        li.breadcrumb-item.active(aria-current='page')
+          | List
+  // end::Row
+block content
+  if users && users.length 
+    each user in users
+      //- .card.text-center.bg-image.shadow-1-strong(style="width: 20rem;background-image: url('/images/avatar/"+user.avatar+"');background-repeat: no-repeat;")
+      .card.text-center.bg-image.shadow-1-strong.m-4(style="width: 20rem;")
+        .card-header
+          img.card-img-top.border.border-5(src='/images/avatar/'+user.avatar, style="height: 12rem; width: 12rem;")
+          h5 #{user.name}
+        .card-body.mask
+          h6.card-title #{user.email}
+          //- p.card-text #{user.hash}
+          a.btn.btn-primary(href='/users/avatar/'+user.id) change avatar
+        .card-footer.text-muted #{moment(user.createdAt).format('LLLL')}
+  else 
+    p no user found in memory yet.

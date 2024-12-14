@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    .container
+        form(method='post',action='/users')
+            .form-group
+                label(for='userName') Full name
+                input#userName.form-control(name='name', type='text', required, aria-describedby='nameHelp', placeholder='Enter name')
+                small#nameHelp.form-text.text-muted Please provide full name as in identity proof.
+            .form-group
+                label(for='userEmail') e-mail address
+                input#userEmail.form-control(name='email', type='email', required, aria-describedby='emailHelp', placeholder='Enter e-mail')
+                small#emailHelp.form-text.text-muted We&apos;ll never share your e-mail with anyone else.
+            .form-group
+                label(for='securityCode') Security code
+                input#securityCode.form-control(name='hash', type='password', required, placeholder='Security code')
+            .form-group
+                label(for='securityCode') Repeat security code
+                input#securityCode.form-control(name='hashCompare', type='password', required, placeholder='Repeat security code')
+            .form-check
+                input#invalidCheck2.form-check-input(type='checkbox', value='', required)
+                label.form-check-label(for='invalidCheck2') Agree to terms and conditions
+            button.btn.btn-primary(type='submit') Submit

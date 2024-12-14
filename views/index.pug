@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  .alert.alert-warning.alert-dismissible.fade.show(role='alert')
+      strong #{title}!
+      |  You should check in on some of those pages too.
+      button.close(type='button', data-dismiss='alert', aria-label='Close')
+        span(aria-hidden='true') &times;

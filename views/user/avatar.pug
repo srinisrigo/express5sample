@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+    .container
+        form(method='post',action='/users/avatar/'+id,enctype="multipart/form-data")
+            .form-group
+                label(for='userEmail') Avatar
+                input#userAvatar.form-control(name='avatar', type='file', required, aria-describedby='fileHelp', placeholder='Enter avatar')
+                small#fileHelp.form-text.text-muted We&apos;ll never share your avatar with anyone else.
+            button.btn.btn-primary(type='submit') Submit

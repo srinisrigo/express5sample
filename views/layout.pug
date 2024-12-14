@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    script(src='/javascripts/jquery-3.7.1.min.js')
+    script(src='/javascripts/bootstrap.min.js')
+  body
+    if message
+      .alert.alert-warning.alert-dismissible.fade.show(role='alert')
+        strong #{message}.
+        button.close(type='button', data-dismiss='alert', aria-label='Close')
+          span(aria-hidden='true') &times;
+    block breadcrumb
+    block content

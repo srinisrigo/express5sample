@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+    .container
+        form(method=post,action='/users/auth')
+            .form-group
+                label(for='userEmail') e-mail address
+                input#userEmail.form-control(name='name', type='email', aria-describedby='emailHelp', placeholder='e-mail')
+                small#emailHelp.form-text.text-muted We&apos;ll never share your e-mail with anyone else.
+            .form-group
+                label(for='securityCode') Security code
+                input#securityCode.form-control(name='email', type='password', placeholder='Security code')
+            .form-group.form-check
+                input#exampleCheck1.form-check-input(type='checkbox',disabled)
+                label.form-check-label(for='exampleCheck1') Check me out
+            button.btn.btn-primary(type='submit') Submit
